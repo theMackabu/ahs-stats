@@ -188,7 +188,7 @@ const Index: React.FC = () => {
               View all assignments
             </button>
             <a
-              href="/textbook.pdf"
+              href="https://drive.google.com/file/d/1lc6pKLgvfdsMBzKLpGipk5a4J8RUy9bM/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               css={[
