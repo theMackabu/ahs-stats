@@ -130,7 +130,7 @@ const Index: React.FC = () => {
           (_0x1a3e67) => _0x1a3e67["Date"] === new Date()[_0x17cca2(0xca)]() + 0x1 + "/" + (new Date()["getDate"]() - 0x2)
         )[0x0][_0x17cca2(0xbf)];
     else {
-      if (sheetData[0x0]?.[_0x17cca2(0xc2)]["filter"]((_0x4afd77) => _0x4afd77 === undefined)[0x0])
+      if (sheetData[0x0]?.[_0x17cca2(0xc2)]["filter"]((_0x4afd77) => _0x4afd77 === undefined))
         var currentHomeWork = "Cannot\x20load\x20homework...",
           currentHomeWorkNumber = _0x17cca2(0xcc);
       else
