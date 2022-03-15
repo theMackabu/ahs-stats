@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, { useEffect, useState, Fragment } from "react";
 import { useQuery } from "react-query";
 import LoadingBar from "react-top-loading-bar";
