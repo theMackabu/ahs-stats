@@ -5,7 +5,8 @@
   "scripts": {
     "build": "next build",
     "start": "next start --hostname 0.0.0.0 -p 5732",
-    "dev": "next dev --hostname 0.0.0.0 -p 5732"
+    "dev": "next dev --hostname 0.0.0.0 -p 5732",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@emotion/css": "^11.7.1",
