@@ -34,7 +34,7 @@ const Index: React.FC = () => {
       right: 0,
       bottom: 0,
       backgroundColor: 'rgba(0, 0, 0, 0)',
-      backdropFilter: "blur(3px)",
+      backdropFilter: "blur(4px)",
       overflowY: "auto",
     },
   };
@@ -228,6 +228,8 @@ const Index: React.FC = () => {
               <Spinner size="small" isBlue={theme !== "dark"} centered />
             ) : (
               <React.Fragment>
+                <Fade in={visible} timeout={100} appear unmountOnExit>
+                
                 <div css={tw`flex flex-col rounded`}>
                   <div css={[`max-height: 100vh`,tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
                     <div css={tw`inline-block min-w-full rounded`}>
@@ -276,6 +278,7 @@ const Index: React.FC = () => {
                     </div>
                   </div>
                 </div>
+          </Fade>
               </React.Fragment>
             )}
           </div>
