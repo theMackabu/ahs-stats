@@ -8,7 +8,7 @@ const Header: React.FC = () => {
       <meta charSet="UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>libQuest</title>
+      <title>AHS STATS</title>
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#FFFFFF" />
       <meta content="libQuest Quizzes" property="og:title" />
