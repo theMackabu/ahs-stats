@@ -228,8 +228,6 @@ const Index: React.FC = () => {
               <Spinner size="small" isBlue={theme !== "dark"} centered />
             ) : (
               <React.Fragment>
-              <button css={tw`hidden md:block text-xs text-gray-700 dark:text-gray-300 -ml-6 hover:text-gray-900 hover:dark:text-blue-300 transition mb-1`} onClick={() => setVisible(false)}>CLOSE</button>
-              <div ss={tw`block md:hidden`} onClick={() => setVisible(true)}>
                 <div css={tw`flex flex-col rounded`}>
                   <div css={[`max-height: 100vh`,tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
                     <div css={tw`inline-block min-w-full rounded`}>
@@ -278,7 +276,6 @@ const Index: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              </div>
               </React.Fragment>
             )}
           </div>
