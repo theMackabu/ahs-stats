@@ -14,7 +14,6 @@ import Modal from "react-modal";
 import Fade from "components/Fade";
 import CopyOnClick from "components/CopyOnClick";
 import { useAddToHomescreenPrompt } from "hooks/homePWA";
-
 import useGoogleSheets from "use-google-sheets";
 import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 
@@ -28,7 +27,13 @@ const Index: React.FC = () => {
   const formatDateMonth = `${new Date().getMonth() + 1}/${new Date().getDate()}`;
 
   const customStyles = {
-    content: {
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0)',
       backdropFilter: "blur(3px)",
       overflowY: "auto",
     },
@@ -146,6 +151,9 @@ const Index: React.FC = () => {
       }, 200);
     }
   }, []);
+  
+  Modal.setAppElement('#__next');
+  
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -173,7 +181,7 @@ const Index: React.FC = () => {
           <button
             onClick={() => setVisible(true)}
             css={[
-              tw`text-center w-full block py-2 px-3 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 ring-0 dark:bg-blue-500 dark:hover:bg-blue-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0`,
+              tw`text-center w-full block py-2 px-3 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 ring-0 dark:bg-blue-500 dark:hover:bg-blue-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
               sheetLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,
             ]}
           >
@@ -207,21 +215,23 @@ const Index: React.FC = () => {
           Install?
         </button>
       </div>
-      <Fade in={visible} timeout={150} appear unmountOnExit>
+      <div onClick={() => setVisible(false)}>
         <Modal
-          ariaHideApp={false}
-          css={[tw`absolute w-full h-full rounded flex items-center justify-center bg-gray-400 dark:bg-gray-900 bg-opacity-10 dark:bg-opacity-70`]}
+          css={[tw`md:h-full md:flex md:items-center md:justify-center ring-0 outline-none`]}
           style={customStyles}
           isOpen={visible}
-          onRequestClose={() => setVisible(false)}
+          backdrop="static"
+          onRequestClose={(e) => {e.stopPropagation(); setVisible(false)}}
         >
           <div>
             {sheetLoading ? (
               <Spinner size="small" isBlue={theme !== "dark"} centered />
             ) : (
               <React.Fragment>
+              <button css={tw`hidden md:block text-xs text-gray-700 dark:text-gray-300 -ml-6 hover:text-gray-900 hover:dark:text-blue-300 transition mb-1`} onClick={() => setVisible(false)}>CLOSE</button>
+              <div ss={tw`block md:hidden`} onClick={() => setVisible(true)}>
                 <div css={tw`flex flex-col rounded`}>
-                  <div css={tw`overflow-x-auto sm:-mx-6 lg:-mx-8 max-h-96 rounded`}>
+                  <div css={[`max-height: 100vh`,tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
                     <div css={tw`inline-block min-w-full rounded`}>
                       <div css={tw`overflow-hidden sm:rounded-lg`}>
                         <table css={tw`min-w-full`}>
@@ -256,7 +266,7 @@ const Index: React.FC = () => {
                                   <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
                                     {sheetData[0].data[index].Topic}
                                   </td>
-                                  <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  <td css={tw`py-4 px-6 text-sm font-bold text-gray-900 whitespace-nowrap dark:text-white`}>
                                     {sheetData[0].data[index].Assignment}
                                   </td>
                                 </tr>
@@ -268,11 +278,13 @@ const Index: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </div>
               </React.Fragment>
             )}
           </div>
         </Modal>
-      </Fade>
+        </div>
+    
     </div>
   );
 };
