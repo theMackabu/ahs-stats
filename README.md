@@ -1,3 +1,3 @@
-# ahs-stats
+# ahs-pre-calc
 
-For stats class
+For pre calc

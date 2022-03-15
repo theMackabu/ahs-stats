@@ -12,7 +12,7 @@ import "public/manifest.json";
 import "public/icon-225.png";
 
 const queryClient = new QueryClient();
-const siteTitle = `AHS STATS`;
+const siteTitle = `PRECALC`;
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {

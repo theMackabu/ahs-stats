@@ -8,10 +8,10 @@ const Header: React.FC = () => {
       <meta charSet="UTF-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>AHS STATS</title>
+      <title>AHS PRE CALC</title>
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#FFFFFF" />
-      <meta content="Albany High School: AP STATS" property="og:title" />
+      <meta content="Albany High School: PRE CALC" property="og:title" />
       <meta content="0.1.5" property="og:site_name" />
       <meta content="Convinience for you :D" property="og:description" />
       <meta name="description" content="Convinience for you :D" />

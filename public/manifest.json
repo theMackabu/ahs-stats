@@ -1,8 +1,8 @@
 {
-  "name": "Albany High School AP Stats",
-  "short_name": "AHS STATS",
+  "name": "Albany High School Pre Calc",
+  "short_name": "AHS PRECALC",
   "version": "0.1.5",
-  "description": "AP STATS",
+  "description": "PRECALC",
   "icons": [
     {
       "src": "icon-225.png",

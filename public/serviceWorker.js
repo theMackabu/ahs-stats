@@ -67,7 +67,7 @@ function _0x3c9a() {
     }
   }
 })(_0x3c9a, 0x74a21);
-var CACHE_NAME = "ahsStats" + new Date()["getTime"](),
+var CACHE_NAME = "ahsPreCalc" + new Date()["getTime"](),
   urlsToCache = [_0x3d425a(0x115)];
 self["addEventListener"](_0x3d425a(0x107), (_0x1356f9) => {
   var _0x1bcf47 = _0x3d425a;
