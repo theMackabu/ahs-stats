@@ -1,0 +1,12 @@
+:root {
+  --color-bg: rgb(229, 231, 235);
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+aside,
+main {
+  -webkit-overflow-scrolling: touch;
+}

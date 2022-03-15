@@ -1,0 +1,17 @@
+{
+  "name": "Albany High School AP Stats",
+  "short_name": "AHS STATS",
+  "version": "0.1.5",
+  "description": "AP STATS",
+  "icons": [
+    {
+      "src": "icon-225.png",
+      "sizes": "225x225",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
