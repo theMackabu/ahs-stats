@@ -23,6 +23,7 @@ const Index: React.FC = () => {
   const loadTimeFake = Math.floor(Math.random() * 100);
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [visibleText, setTextVisible] = useState(false);
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
   const formatDateMonth = `${new Date().getMonth() + 1}/${new Date().getDate()}`;
 
@@ -155,16 +156,14 @@ else {
             >
               View all assignments
             </button>
-            <a
-              href="https://drive.google.com/file/d/1lc6pKLgvfdsMBzKLpGipk5a4J8RUy9bM/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setTextVisible(true)}
               css={[
                 tw`ml-1.5 text-center block py-2 px-3 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 ring-0 dark:bg-teal-500 dark:hover:bg-teal-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
-              ]}
+                sheetLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,]}
             >
               <BookOpenIcon css={tw`w-6 h-6`} />
-            </a>
+            </button>
           </div>
         </div>
         <span suppressHydrationWarning css={tw`font-normal text-gray-400 mt-2 text-xs transition duration-500`}>
@@ -257,6 +256,182 @@ else {
                                   </tr>
                                 );
                               })}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Fade>
+              </React.Fragment>
+            )}
+          </div>
+        </Modal>
+      </div>
+
+      <div onClick={() => setTextVisible(false)}>
+        <Modal
+          css={[tw`md:h-full md:flex md:items-center md:justify-center ring-0 outline-none`]}
+          style={customStyles}
+          isOpen={visibleText}
+          backdrop="static"
+          onRequestClose={(e) => {
+            e.stopPropagation();
+            setTextVisible(false);
+          }}
+        >
+          <div>
+            {sheetLoading ? (
+              <Spinner size="small" isBlue={theme !== "dark"} centered />
+            ) : (
+              <React.Fragment>
+              <Fade in={visibleText} timeout={100} appear unmountOnExit>
+                  <div css={tw`flex flex-col rounded`}>
+                    <div css={[`max-height: 100vh`, tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
+                      <div css={tw`inline-block min-w-full rounded`}>
+                        <div css={tw`overflow-hidden sm:rounded-lg`}>
+                          <table css={tw`min-w-full`}>
+                            <thead css={tw`bg-gray-50 dark:bg-gray-700`}>
+                              <tr>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Textbook
+                                </th>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Chapter
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1FF1l1fF1ulgQcv2EV3r7M3jB3kN4ylMd/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Answer Key (ODD)</a>
+                                  </td>
+                                </tr>
+                            <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1_-7_76Y6ZoWPpGfq7lxxzmOvTeUTEsJP/view?usp=sharing"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 3</a>
+                                  </td>
+                                </tr>
+
+                             <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1UasTRDtsl874gQe6xej0LTsfgIX93hV9/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 4</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1I4-MpJeM8zcrIJN9h-RFMNxYrky5N2gJ/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 5</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1CzM5QsK4Fd9qkJbqRS3VFd4sdMKAUkV4/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 6</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1Bhb1sabsItD0Iov7ZEjvGFBXVeJCB99s/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 7</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1h3xZOyNWILi_Y01iUMEosEt2EjrtDb2f/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 8</a>
+                                  </td>
+                                </tr>
+                                
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1gJPzhYlSCKTY04F6qvqmgY2anD_i_sQA/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 9</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1Y5b2MjsPZFmQYrTFD9z6xnmLaeE22DrQ/view"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 10</a>
+                                  </td>
+                                </tr>
+
+                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                  Pre-Calc
+                               </td>
+                               <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                               <a
+                                  href="https://drive.google.com/file/d/1F-9-j1_3W5eiq-CyGItQcpYpAIv2ofDe/view?usp=sharing"
+                                  target="_blank"
+                                  css={tw`underline hover:text-blue-600 hover:dark:text-blue-300 transition`}
+                                  rel="noopener noreferrer">Chapter 13</a>
+                                  </td>
+                                </tr>
+                                
+
                             </tbody>
                           </table>
                         </div>
