@@ -19,7 +19,6 @@ import useGoogleSheets from "use-google-sheets";
 import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 
 const Index: React.FC = () => {
-  const { data: versionData, isLoading } = useQuery("version", getVersion);
   const [progress, setProgress] = useState(0);
   const { theme, setTheme } = useTheme();
   const formatDateMonth = `${new Date().getMonth() + 1}/${new Date().getDate()}`;
@@ -105,7 +104,7 @@ const Index: React.FC = () => {
       </div>
       <div tw="absolute bottom-5 left-5 transition duration-500">
         <span suppressHydrationWarning css={tw`font-normal text-gray-400 mt-2 text-xs`}>
-          {versionData?.version} ({loadTimeFake}ms) by Sajjaad Farzad
+          0.1.5 ({loadTimeFake}ms) by Sajjaad Farzad
         </span>
       </div>
       <div tw="absolute top-5 left-5">
