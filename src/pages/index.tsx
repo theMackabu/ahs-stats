@@ -15,7 +15,7 @@ import Fade from "components/Fade";
 import CopyOnClick from "components/CopyOnClick";
 import { useAddToHomescreenPrompt } from "hooks/homePWA";
 import useGoogleSheets from "use-google-sheets";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid";
+import { SunIcon, MoonIcon, BookOpenIcon } from "@heroicons/react/solid";
 
 const Index: React.FC = () => {
   const [progress, setProgress] = useState(0);
@@ -178,6 +178,7 @@ const Index: React.FC = () => {
               {sheetLoading ? <Spinner size="small" isBlue={theme !== "dark"} centered /> : currentHomeWork}
             </div>
           </CopyOnClick>
+          <div css={tw`flex`}>
           <button
             onClick={() => setVisible(true)}
             css={[
@@ -187,6 +188,18 @@ const Index: React.FC = () => {
           >
             View all assignments
           </button>
+          <a
+            href="/textbook.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            css={[
+              tw`ml-1.5 text-center block py-2 px-3 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 ring-0 dark:bg-teal-500 dark:hover:bg-teal-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
+            ]}
+          >
+            <BookOpenIcon css={tw`w-6 h-6`}/>
+          </a>
+          </div>
+      
         </div>
         <span suppressHydrationWarning css={tw`font-normal text-gray-400 mt-2 text-xs transition duration-500`}>
           {sheetLoading ? "Loading..." : `${formatDateMonth}/${new Date().getFullYear()} (HW: ${currentHomeWorkNumber})`}
@@ -195,7 +208,7 @@ const Index: React.FC = () => {
       <div tw="absolute top-5 right-5">
         <div
           suppressHydrationWarning
-          css={tw`cursor-pointer rounded p-2 bg-gray-100 border border-gray-50 text-indigo-800 dark:bg-gray-800 dark:border-gray-700 dark:text-orange-300 shadow-sm text-sm transition duration-500`}
+          css={tw`cursor-pointer rounded p-2 bg-gray-100 border border-gray-50 text-indigo-800 dark:bg-gray-800 dark:border-gray-700 dark:text-yellow-300 shadow-sm text-sm transition duration-500 hover:text-teal-800 hover:dark:text-orange-300`}
           aria-label="Toggle Dark Mode"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
@@ -214,6 +227,7 @@ const Index: React.FC = () => {
         >
           Install?
         </button>
+        
       </div>
       <div onClick={() => setVisible(false)}>
         <Modal
