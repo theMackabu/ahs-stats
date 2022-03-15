@@ -40,8 +40,8 @@ const Index: React.FC = () => {
     loading: sheetLoading,
     error: sheetError,
   } = useGoogleSheets({
-    apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
-    sheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEETS_ID,
+    apiKey: "AIzaSyBOcts7V-BUeKAMQfint5MM3N3wdPutIzE",
+    sheetId: "1T8TSvK9_1aCEi6N68CjjQdzUuJ3Opvj6uxQs7Pte7vM",
   });
 
   const currentHomeWork = sheetData[0]?.data.filter((x) => x.Date === formatDateMonth)[0].Assignment;
