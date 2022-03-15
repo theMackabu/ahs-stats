@@ -82,7 +82,7 @@ const Index: React.FC = () => {
             onClick={() => setVisible(true)}
             css={[
               tw`text-center w-full block py-2 px-3 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 ring-0 dark:bg-blue-500 dark:hover:bg-blue-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0`,
-              isLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,
+              sheetLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,
             ]}
           >
             View all assignments
