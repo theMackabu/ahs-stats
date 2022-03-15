@@ -21,11 +21,11 @@ import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 const Index: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const { theme, setTheme } = useTheme();
-  const formatDateMonth = `${new Date().getMonth() + 1}/${new Date().getDate()}`;
   const loadTimeFake = Math.floor(Math.random() * 100);
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [prompt, promptToInstall] = useAddToHomescreenPrompt();
+  const formatDateMonth = `${new Date().getMonth() + 1}/${new Date().getDate()}`;
 
   const customStyles = {
     content: {
@@ -43,8 +43,100 @@ const Index: React.FC = () => {
     sheetId: "1T8TSvK9_1aCEi6N68CjjQdzUuJ3Opvj6uxQs7Pte7vM",
   });
 
-  const currentHomeWork = sheetData[0]?.data.filter((x) => x.Date === formatDateMonth)[0].Assignment;
-  const currentHomeWorkNumber = sheetData[0]?.data.filter((x) => x.Date === formatDateMonth)[0]["HW #"];
+  var _0x17cca2 = _0x4b23;
+  (function (_0x112b3c, _0x29d9b7) {
+    var _0xd5df16 = _0x4b23,
+      _0x5ad0ef = _0x112b3c();
+    while (!![]) {
+      try {
+        var _0x7e75eb =
+          -parseInt(_0xd5df16(0xc6)) / 0x1 +
+          (parseInt(_0xd5df16(0xbb)) / 0x2) * (parseInt(_0xd5df16(0xc5)) / 0x3) +
+          (-parseInt(_0xd5df16(0xba)) / 0x4) * (-parseInt(_0xd5df16(0xc9)) / 0x5) +
+          (parseInt(_0xd5df16(0xbc)) / 0x6) * (parseInt(_0xd5df16(0xc4)) / 0x7) +
+          parseInt(_0xd5df16(0xbe)) / 0x8 +
+          -parseInt(_0xd5df16(0xcb)) / 0x9 +
+          (parseInt(_0xd5df16(0xc7)) / 0xa) * (-parseInt(_0xd5df16(0xc0)) / 0xb);
+        if (_0x7e75eb === _0x29d9b7) break;
+        else _0x5ad0ef["push"](_0x5ad0ef["shift"]());
+      } catch (_0x87abd8) {
+        _0x5ad0ef["push"](_0x5ad0ef["shift"]());
+      }
+    }
+  })(_0x3342, 0xf166f);
+  function _0x3342() {
+    var _0x35d4c4 = [
+      "2TIpUxT",
+      "12oCTKhq",
+      "filter",
+      "13300976DcFYvq",
+      "HW\x20#",
+      "55HPeTvn",
+      "Assignment",
+      "data",
+      "getDate",
+      "5489750HowLNu",
+      "1711914xytvFu",
+      "1463421HUrHEd",
+      "4794090kIqKhA",
+      "Date",
+      "343135vxKDkf",
+      "getMonth",
+      "7248960fwqnzm",
+      "Cannot\x20load\x20homework,\x20please\x20check\x20all\x20assignments.",
+      "108uVvJKu",
+    ];
+    _0x3342 = function () {
+      return _0x35d4c4;
+    };
+    return _0x3342();
+  }
+  function _0x4b23(_0x4bb3ea, _0x31d859) {
+    var _0x33421a = _0x3342();
+    return (
+      (_0x4b23 = function (_0x4b2375, _0x45d0cd) {
+        _0x4b2375 = _0x4b2375 - 0xba;
+        var _0x559bcd = _0x33421a[_0x4b2375];
+        return _0x559bcd;
+      }),
+      _0x4b23(_0x4bb3ea, _0x31d859)
+    );
+  }
+
+  if (sheetData[0x0]?.["data"]["filter"]((_0x4f6c09) => _0x4f6c09[_0x17cca2(0xc8)] === formatDateMonth && _0x4f6c09["Assignment"] !== undefined)[0x0])
+    var currentHomeWork = sheetData[0x0]?.[_0x17cca2(0xc2)][_0x17cca2(0xbd)]((_0x1fd7b2) => _0x1fd7b2[_0x17cca2(0xc8)] === formatDateMonth)[0x0][
+        _0x17cca2(0xc1)
+      ],
+      currentHomeWorkNumber = sheetData[0x0]?.[_0x17cca2(0xc2)][_0x17cca2(0xbd)]((_0x365db2) => _0x365db2["Date"] === formatDateMonth)[0x0][
+        _0x17cca2(0xbf)
+      ];
+  else {
+    if (
+      sheetData[0x0]?.["data"][_0x17cca2(0xbd)](
+        (_0x5efb1a) =>
+          _0x5efb1a[_0x17cca2(0xc8)] === new Date()["getMonth"]() + 0x1 + "/" + (new Date()[_0x17cca2(0xc3)]() - 0x2) &&
+          _0x5efb1a[_0x17cca2(0xc1)] !== undefined
+      )[0x0]
+    )
+      var currentHomeWork = sheetData[0x0]?.[_0x17cca2(0xc2)][_0x17cca2(0xbd)](
+          (_0x334f7a) => _0x334f7a["Date"] === new Date()[_0x17cca2(0xca)]() + 0x1 + "/" + (new Date()[_0x17cca2(0xc3)]() - 0x2)
+        )[0x0][_0x17cca2(0xc1)],
+        currentHomeWorkNumber = sheetData[0x0]?.[_0x17cca2(0xc2)][_0x17cca2(0xbd)](
+          (_0x1a3e67) => _0x1a3e67["Date"] === new Date()[_0x17cca2(0xca)]() + 0x1 + "/" + (new Date()["getDate"]() - 0x2)
+        )[0x0][_0x17cca2(0xbf)];
+    else {
+      if (sheetData[0x0]?.[_0x17cca2(0xc2)]["filter"]((_0x4afd77) => _0x4afd77 === undefined)[0x0])
+        var currentHomeWork = "Cannot\x20load\x20homework...",
+          currentHomeWorkNumber = _0x17cca2(0xcc);
+      else
+        var currentHomeWork = sheetData[0x0]?.[_0x17cca2(0xc2)][_0x17cca2(0xbd)](
+            (_0x4e7fb9) => _0x4e7fb9[_0x17cca2(0xc8)] === new Date()["getMonth"]() + 0x1 + "/" + (new Date()["getDate"]() - 0x1)
+          )[0x0][_0x17cca2(0xc1)],
+          currentHomeWorkNumber = sheetData[0x0]?.[_0x17cca2(0xc2)]["filter"](
+            (_0x5aa438) => _0x5aa438[_0x17cca2(0xc8)] === new Date()["getMonth"]() + 0x1 + "/" + (new Date()[_0x17cca2(0xc3)]() - 0x1)
+          )[0x0]["HW\x20#"];
+    }
+  }
 
   useEffect(() => {
     if (sheetLoading) {
