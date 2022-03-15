@@ -11,10 +11,10 @@ const Header: React.FC = () => {
       <title>AHS STATS</title>
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="theme-color" content="#FFFFFF" />
-      <meta content="libQuest Quizzes" property="og:title" />
-      <meta content={SITE_VERSION} property="og:site_name" />
-      <meta content={SITE_DESCRIPTION} property="og:description" />
-      <meta name="description" content={SITE_DESCRIPTION} />
+      <meta content="Albany High School: AP STATS" property="og:title" />
+      <meta content="0.1.5" property="og:site_name" />
+      <meta content="Convinience for you :D" property="og:description" />
+      <meta name="description" content="Convinience for you :D" />
     </Head>
   );
 };
