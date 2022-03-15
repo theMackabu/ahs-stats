@@ -28,12 +28,12 @@ const Index: React.FC = () => {
 
   const customStyles = {
     overlay: {
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0)',
+      backgroundColor: "rgba(0, 0, 0, 0)",
       backdropFilter: "blur(4px)",
       overflowY: "auto",
     },
@@ -151,9 +151,8 @@ const Index: React.FC = () => {
       }, 200);
     }
   }, []);
-  
-  Modal.setAppElement('#__next');
-  
+
+  Modal.setAppElement("#__next");
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -179,27 +178,26 @@ const Index: React.FC = () => {
             </div>
           </CopyOnClick>
           <div css={tw`flex`}>
-          <button
-            onClick={() => setVisible(true)}
-            css={[
-              tw`text-center w-full block py-2 px-3 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 ring-0 dark:bg-blue-500 dark:hover:bg-blue-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
-              sheetLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,
-            ]}
-          >
-            View all assignments
-          </button>
-          <a
-            href="/textbook.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            css={[
-              tw`ml-1.5 text-center block py-2 px-3 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 ring-0 dark:bg-teal-500 dark:hover:bg-teal-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
-            ]}
-          >
-            <BookOpenIcon css={tw`w-6 h-6`}/>
-          </a>
+            <button
+              onClick={() => setVisible(true)}
+              css={[
+                tw`text-center w-full block py-2 px-3 text-base font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 ring-0 dark:bg-blue-500 dark:hover:bg-blue-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
+                sheetLoading && tw`opacity-90 cursor-default pointer-events-none hover:duration-100`,
+              ]}
+            >
+              View all assignments
+            </button>
+            <a
+              href="/textbook.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              css={[
+                tw`ml-1.5 text-center block py-2 px-3 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 ring-0 dark:bg-teal-500 dark:hover:bg-teal-600 dark:ring-0 transition cursor-pointer transition duration-500 focus:ring-0 focus:dark:ring-0 outline-none`,
+              ]}
+            >
+              <BookOpenIcon css={tw`w-6 h-6`} />
+            </a>
           </div>
-      
         </div>
         <span suppressHydrationWarning css={tw`font-normal text-gray-400 mt-2 text-xs transition duration-500`}>
           {sheetLoading ? "Loading..." : `${formatDateMonth}/${new Date().getFullYear()} (HW: ${currentHomeWorkNumber})`}
@@ -227,7 +225,6 @@ const Index: React.FC = () => {
         >
           Install?
         </button>
-        
       </div>
       <div onClick={() => setVisible(false)}>
         <Modal
@@ -235,7 +232,10 @@ const Index: React.FC = () => {
           style={customStyles}
           isOpen={visible}
           backdrop="static"
-          onRequestClose={(e) => {e.stopPropagation(); setVisible(false)}}
+          onRequestClose={(e) => {
+            e.stopPropagation();
+            setVisible(false);
+          }}
         >
           <div>
             {sheetLoading ? (
@@ -243,62 +243,64 @@ const Index: React.FC = () => {
             ) : (
               <React.Fragment>
                 <Fade in={visible} timeout={100} appear unmountOnExit>
-                
-                <div css={tw`flex flex-col rounded`}>
-                  <div css={[`max-height: 100vh`,tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
-                    <div css={tw`inline-block min-w-full rounded`}>
-                      <div css={tw`overflow-hidden sm:rounded-lg`}>
-                        <table css={tw`min-w-full`}>
-                          <thead css={tw`bg-gray-50 dark:bg-gray-700`}>
-                            <tr>
-                              <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>Day</th>
-                              <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
-                                Date
-                              </th>
-                              <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>Hw</th>
-                              <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
-                                Topic
-                              </th>
-                              <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
-                                Assignment
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {sheetData[0].data.map((attendence, index) => {
-                              return (
-                                <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
-                                  <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
-                                    {sheetData[0].data[index]["Day "]}
-                                  </td>
-                                  <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
-                                    {sheetData[0].data[index].Date}
-                                  </td>
-                                  <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
-                                    {sheetData[0].data[index]["HW #"]}
-                                  </td>
-                                  <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
-                                    {sheetData[0].data[index].Topic}
-                                  </td>
-                                  <td css={tw`py-4 px-6 text-sm font-bold text-gray-900 whitespace-nowrap dark:text-white`}>
-                                    {sheetData[0].data[index].Assignment}
-                                  </td>
-                                </tr>
-                              );
-                            })}
-                          </tbody>
-                        </table>
+                  <div css={tw`flex flex-col rounded`}>
+                    <div css={[`max-height: 100vh`, tw`overflow-x-auto sm:-mx-6 lg:-mx-8 md:max-h-96 rounded`]}>
+                      <div css={tw`inline-block min-w-full rounded`}>
+                        <div css={tw`overflow-hidden sm:rounded-lg`}>
+                          <table css={tw`min-w-full`}>
+                            <thead css={tw`bg-gray-50 dark:bg-gray-700`}>
+                              <tr>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Day
+                                </th>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Date
+                                </th>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Hw
+                                </th>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Topic
+                                </th>
+                                <th css={tw`py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400`}>
+                                  Assignment
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {sheetData[0].data.map((attendence, index) => {
+                                return (
+                                  <tr css={tw`bg-white border-b dark:bg-gray-800 dark:border-gray-700`}>
+                                    <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                      {sheetData[0].data[index]["Day "]}
+                                    </td>
+                                    <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                      {sheetData[0].data[index].Date}
+                                    </td>
+                                    <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                      {sheetData[0].data[index]["HW #"]}
+                                    </td>
+                                    <td css={tw`py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white`}>
+                                      {sheetData[0].data[index].Topic}
+                                    </td>
+                                    <td css={tw`py-4 px-6 text-sm font-bold text-gray-900 whitespace-nowrap dark:text-white`}>
+                                      {sheetData[0].data[index].Assignment}
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-          </Fade>
+                </Fade>
               </React.Fragment>
             )}
           </div>
         </Modal>
-        </div>
-    
+      </div>
     </div>
   );
 };
